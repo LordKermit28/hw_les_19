@@ -1,5 +1,5 @@
 from dao.model.director import Director
-
+from utils import auth_required
 
 class DirectorDAO:
     def __init__(self, session):
