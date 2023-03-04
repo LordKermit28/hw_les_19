@@ -24,6 +24,7 @@ class AuthService:
             "username": user.username,
             "role": user.role,
         }
+
         """access token"""
         min30 = datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
         data['exp'] = calendar.timegm(min30.timetuple())

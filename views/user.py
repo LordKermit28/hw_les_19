@@ -1,6 +1,6 @@
 from importlib.resources import Resource
 
-from flask_restx import Namespace
+from flask_restx import Namespace, Resource
 from flask import request
 
 
