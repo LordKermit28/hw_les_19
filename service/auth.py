@@ -42,7 +42,7 @@ class AuthService:
 
         user = self.user_service.get_by_username(username=username)
 
-        if user in None:
+        if user is None:
             raise Exception()
         return self.generate_tokens(username, user.password, is_refresh=True)
 
