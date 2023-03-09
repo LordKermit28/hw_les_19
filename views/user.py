@@ -14,7 +14,7 @@ class UsersView(Resource):
     def get(self):
         all_users = user_service.get_all()
         res = UserSchema(many=True).dump(all_users)
-        return "", 200
+        return res, 200
 
     def post(self):
         data = request.json

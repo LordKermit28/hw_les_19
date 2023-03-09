@@ -11,25 +11,23 @@ from views.movies import movie_ns
 from views.user import user_ns
 from views.auth import auth_ns
 
-def create_data(db, app):
-    with app.app_context():
-        db.create_all()
-
-        user1 = User(username="sergei", password='doka', role='user')
-
-        with db.session.begin():
-            db.session.add(user1)
+# def create_data(db, app):
+#     with app.app_context():
+#         db.drop_all()
+#         db.create_all()
+#
+#         user1 = User(username="sergei", password=user_service.make_user_password_hash('doka'), role='user')
+#
+#         with db.session.begin():
+#             db.session.add(user1)
 
 
 def create_app(config_object):
     app = Flask(__name__)
     app.config.from_object(config_object)
     register_extensions(app)
-    create_data(db, app)
+    # create_data(db, app)
     return app
-
-
-
 
 
 def register_extensions(app):
