@@ -3,7 +3,7 @@ import hashlib
 import hmac
 
 from dao.user import UserDAO
-from constants import PWD_HASH_ASLT, PWD_HASH_ITERATIONS
+from constants import PWD_HASH_SALT, PWD_HASH_ITERATIONS
 
 class UserService:
     def __init__(self, dao: UserDAO):
@@ -35,7 +35,7 @@ class UserService:
         return base64.b64encode(hashlib.pbkdf2_hmac(
             'sha256',
             password.encode('utf-8'),
-            PWD_HASH_ASLT,
+            PWD_HASH_SALT,
             PWD_HASH_ITERATIONS,
         ))
 

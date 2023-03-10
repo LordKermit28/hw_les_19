@@ -34,7 +34,9 @@ class AuthService:
         days130 = datetime.datetime.utcnow() + datetime.timedelta(days=130)
         data["exp"] = calendar.timegm(days130.timetuple())
         refresh_token = jwt.encode(data, JWT_SECRET, algorithm=JWT_ALGORITHM)
-        return {"access_token": access_token, "refresh_token": refresh_token}
+
+        return {"access_token": access_token,
+                "refresh_token": refresh_token,}
 
     def approve_refresh_token(self, refresh_token):
         data = jwt.decode(jwt=refresh_token, key=JWT_SECRET, algorithms=[JWT_ALGORITHM])
